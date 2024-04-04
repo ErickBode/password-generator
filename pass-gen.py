@@ -17,19 +17,27 @@ def checkbox_event():
     pass
 
 def button_event(password_length):
-    characterList = ""
-    if check_var_sym.get() == "on":
-        characterList += string.punctuation
-    if check_var_num.get() == "on":
-        characterList += string.digits
-    if check_var_low.get() == "on":
-        characterList += string.ascii_lowercase
-    if check_var_upper.get() == "on":
-        characterList += string.ascii_uppercase
+    if (check_var_sym.get() == "off" and
+        check_var_num.get() == "off" and
+        check_var_low.get() == "off" and
+        check_var_upper.get() == "off"):
+        password_var.set("Need to select at least 1 checkbox.")
+    else:
+        characterList = ""
+        if check_var_sym.get() == "on":
+            characterList += string.punctuation
+        if check_var_num.get() == "on":
+            characterList += string.digits
+        if check_var_low.get() == "on":
+            characterList += string.ascii_lowercase
+        if check_var_upper.get() == "on":
+            characterList += string.ascii_uppercase
 
-    # Generate password of specified length
-    password = ''.join(random.choices(characterList, k=password_length))
-    password_var.set(password)  # Update password label text
+        # Generate password of specified length
+        password = ''.join(random.choices(characterList, k=password_length))
+        password_var.set(password)  # Update password label text
+
+
 
 # Setting up the appearance mode and color theme
 customtkinter.set_appearance_mode("system")
