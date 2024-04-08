@@ -3,7 +3,6 @@ import tkinter
 import string
 import random
 import pyperclip
-
 from tkinter import *
 
 # Functions
@@ -46,12 +45,14 @@ customtkinter.set_default_color_theme("dark-blue")
 # Create the customtkinter window
 app = customtkinter.CTk()
 app.title('Password Generator')
+app.iconbitmap(r"assets\app-icon.ico")
 app.geometry("1000x700")
 app.resizable(False, False)
 
 # Create the Frame of the window
 frame = customtkinter.CTkFrame(master=app, corner_radius=10)
 frame.pack(pady=20, padx=20, fill="both", expand=True)
+
 
 # Start of Labels Section:
 # Password Length
